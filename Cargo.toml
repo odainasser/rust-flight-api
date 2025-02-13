@@ -8,3 +8,7 @@ axum = { version = "0.6", features = ["headers"] }
 hyper = { version = "0.14", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }
 tokio = { version = "1.0", features = ["full"] }
+jsonwebtoken = "8.3"
+headers = "0.3.8"
+tracing = "0.1"
+tracing-subscriber = "0.3"

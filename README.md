@@ -67,6 +67,7 @@ You can use `curl` to test the endpoint:
 ```sh
 curl -X POST http://localhost:8080/calculate \
 -H "Content-Type: application/json" \
+-H "Authorization: Bearer e9c8f8e7d6a5b4c3a2f1e0d9c8b7a6f5" \
 -d '[
     ["JFK", "LAX"],
     ["LAX", "SFO"],
