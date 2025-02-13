@@ -42,24 +42,22 @@ The server will start and listen on `http://0.0.0.0:8080`.
 - **Request Body**:
 
 ```json
-{
-    "flights": [
+[
         ["JFK", "LAX"],
         ["LAX", "SFO"],
         ["SFO", "SEA"]
-    ]
-}
+]
 ```
 
 - **Response**:
 
 ```json
-{
-    "0": "JFK",
-    "1": "LAX",
-    "2": "SFO",
-    "3": "SEA"
-}
+[
+    "JFK",
+    "LAX",
+    "SFO",
+    "SEA"
+]
 ```
 
 ## Example Request
