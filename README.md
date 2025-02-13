@@ -69,13 +69,11 @@ You can use `curl` to test the endpoint:
 ```sh
 curl -X POST http://localhost:8080/calculate \
 -H "Content-Type: application/json" \
--d '{
-    "flights": [
-        ["JFK", "LAX"],
-        ["LAX", "SFO"],
-        ["SFO", "SEA"]
-    ]
-}'
+-d '[
+    ["JFK", "LAX"],
+    ["LAX", "SFO"],
+    ["SFO", "SEA"]
+]'
 ```
 
 ## License
