@@ -12,8 +12,8 @@ use std::{collections::HashMap, sync::Arc};
 use tokio::sync::Mutex;
 use tracing::{info, Level};
 use tracing_subscriber::FmtSubscriber;
-
-const SECRET: &[u8] = b"e9c8f8e7d6a5b4c3a2f1e0d9c8b7a6f5";
+use dotenv::dotenv;
+use std::env;
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Claims {
@@ -39,7 +39,7 @@ async fn calculate_flight_path(
 
     info!("Received token: {}", auth_header.token());
 
-    if auth_header.token() != "e9c8f8e7d6a5b4c3a2f1e0d9c8b7a6f5" {
+    if auth_header.token() != env::var("JWT_SECRET").expect("JWT_SECRET must be set") {
         let error = ErrorResponse {
             message: "Unauthorized: Invalid token".to_string(),
         };
@@ -80,6 +80,7 @@ struct AppState {}
 
 #[tokio::main]
 async fn main() {
+    dotenv().ok(); // Initialize dotenv at start
     
     let subscriber = FmtSubscriber::builder()
         .with_max_level(Level::INFO)
